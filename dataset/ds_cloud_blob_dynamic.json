@@ -1,0 +1,32 @@
+{
+	"name": "ds_cloud_blob_dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_txt",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().tablename",
+					"type": "Expression"
+				},
+				"folderPath": "output",
+				"container": "rkbnewcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
