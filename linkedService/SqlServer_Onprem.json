@@ -1,0 +1,16 @@
+{
+	"name": "SqlServer_Onprem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=SANTANA\\MSSQLSERVER17;initial catalog=AdventureWorksDW2017;user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5NTYyMzAxNC01NDE5LTRlZmUtYmFlZi02N2Y1ODFmNjU0MjMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SelfHostedIntegrationruntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
