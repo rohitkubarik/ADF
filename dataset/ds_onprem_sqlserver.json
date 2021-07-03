@@ -1,0 +1,16 @@
+{
+	"name": "ds_onprem_sqlserver",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_Onprem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimEmployee"
+		}
+	}
+}
