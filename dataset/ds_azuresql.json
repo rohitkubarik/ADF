@@ -7,6 +7,10 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": "test",
+			"table": "t_importfrom_onprem"
+		}
 	}
 }
