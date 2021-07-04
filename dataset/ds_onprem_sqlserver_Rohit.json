@@ -1,0 +1,16 @@
+{
+	"name": "ds_onprem_sqlserver_Rohit",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_Onprem_Rohit",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DimEmployee"
+		}
+	}
+}
