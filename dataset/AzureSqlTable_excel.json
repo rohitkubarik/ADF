@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlTable_excel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase_cloud",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "test",
+			"table": "Employee"
+		}
+	}
+}

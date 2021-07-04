@@ -1,0 +1,22 @@
+{
+	"name": "ds_excel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_txt",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "AzureExcel.xlsx",
+				"folderPath": "input",
+				"container": "rkbnewcontainer"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
