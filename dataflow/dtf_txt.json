@@ -12,13 +12,24 @@
 					"name": "sourcetxt"
 				}
 			],
-			"sinks": [],
-			"transformations": [
+			"sinks": [
 				{
-					"name": "ConditionalSplit1"
+					"dataset": {
+						"referenceName": "ds_cloud_blob",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
 				}
 			],
-			"script": "source(output(\n\t\tid as string,\n\t\tname as string,\n\t\tage as string,\n\t\tlocation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> sourcetxt\nsourcetxt split(ERROR_FUNCTION(''),\n\tdisjoint: false) ~> ConditionalSplit1@(, )"
+			"transformations": [
+				{
+					"name": "chkloc"
+				},
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "source(output(\n\t\tid as string,\n\t\tname as string,\n\t\tage as string,\n\t\tlocation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> sourcetxt\nsourcetxt split(startsWith(location,'b'),\n\tdisjoint: true) ~> chkloc@(locationchk)\nchkloc@locationchk derive(datekey = currentDate()) ~> DerivedColumn1\nDerivedColumn1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
