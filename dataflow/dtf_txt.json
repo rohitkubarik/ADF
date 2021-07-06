@@ -1,0 +1,24 @@
+{
+	"name": "dtf_txt",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText_txt",
+						"type": "DatasetReference"
+					},
+					"name": "sourcetxt"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "ConditionalSplit1"
+				}
+			],
+			"script": "source(output(\n\t\tid as string,\n\t\tname as string,\n\t\tage as string,\n\t\tlocation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> sourcetxt\nsourcetxt split(ERROR_FUNCTION(''),\n\tdisjoint: false) ~> ConditionalSplit1@(, )"
+		}
+	}
+}
